@@ -46,6 +46,33 @@ const ganttConfig = {
         },
       },
     },
+    taskEdit: {
+      items: {
+        dangerZone: {
+          title: "Danger Zone",
+          weight: 90,
+          items: {
+            dangerName: {
+              type: "textfield",
+              weight: 100,
+              label: "Danger Name",
+              // could be any task field like name, id, duration, percentDone
+              name: "name",
+            },
+            dangerProbability: {
+              type: "radiogroup",
+              name: "probability",
+              label: "Probability",
+              options: {
+                hight: "High",
+                medium: "Medium",
+                mow: "Low",
+              },
+            },
+          },
+        },
+      },
+    },
   },
   taskRenderer({ taskRecord, renderData }) {
     console.log("taskRenderer", { taskRecord, renderData });

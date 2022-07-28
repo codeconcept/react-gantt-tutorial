@@ -14,6 +14,14 @@ const ganttConfig = {
   features: {
     filter: true,
   },
+  taskRenderer({ taskRecord, renderData }) {
+    console.log("taskRenderer", { taskRecord, renderData });
+    console.log("taskRecord.name", taskRecord.name);
+    if (taskRecord.name.toLocaleLowerCase().startsWith("important")) {
+      // make important task red
+      renderData.style = "background-color: red; color: pink";
+    }
+  },
 };
 
 export default ganttConfig;

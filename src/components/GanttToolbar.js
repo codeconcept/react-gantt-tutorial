@@ -24,6 +24,13 @@ export default class GanttToolbar extends Toolbar {
     return {
       items: [
         {
+          ref: "undoRedo",
+          type: "undoredo",
+          items: {
+            transactionsCombo: null,
+          },
+        },
+        {
           type: "textfield",
           ref: "filterByName",
           cls: "filter-by-name",

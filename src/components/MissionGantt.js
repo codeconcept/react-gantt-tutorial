@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { BryntumGantt, BryntumProjectModel } from "@bryntum/gantt-react";
 import "../styles/MissionGantt.css";
 
@@ -8,6 +8,10 @@ function MissionGant(props) {
   const ganttRef = useRef();
   const projectRef = useRef();
   const { tasks, dependencies } = missionTasks;
+  useEffect(() => {
+    const { project } = ganttRef.current.instance;
+    project.stm.enable();
+  });
   return (
     <>
       <BryntumProjectModel

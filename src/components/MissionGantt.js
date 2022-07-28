@@ -11,7 +11,7 @@ function MissionGant(props) {
   useEffect(() => {
     const { project } = ganttRef.current.instance;
     project.stm.enable();
-  });
+  }, []);
   return (
     <>
       <BryntumProjectModel

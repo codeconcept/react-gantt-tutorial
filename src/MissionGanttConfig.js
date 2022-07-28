@@ -1,3 +1,5 @@
+import "./components/GanttToolbar";
+
 const ganttConfig = {
   columns: [
     { type: "wbs" },
@@ -5,6 +7,13 @@ const ganttConfig = {
     { type: "startdate" },
     { type: "duration" },
   ],
+  tbar: {
+    type: "gantttoolbar",
+  },
+  // to add filtering option on every column grid header
+  features: {
+    filter: true,
+  },
 };
 
 export default ganttConfig;

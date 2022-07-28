@@ -1,11 +1,7 @@
-import { BryntumGantt } from '@bryntum/gantt-react';
-import { ganttConfig } from './GanttConfig';
-import './App.scss';
-
+import MissionGantt from "./components/MissionGantt";
+import config from "./MissionGanttConfig";
 function App() {
-    return (
-        <BryntumGantt {...ganttConfig} />
-    );
+  return <MissionGantt {...config} />;
 }
 
 // If you plan to use stateful React collections for data binding please check this guide

@@ -11,73 +11,71 @@ const ganttConfig = {
     type: "gantttoolbar",
   },
   // to add filtering option on every column grid header
-  features: {
-    filter: true,
-
-    taskMenu: {
-      items: {
-        moveForward: {
-          text: "Move 1 day ahead",
-          weight: 80,
-          onItem: ({ taskRecord }) => {
-            taskRecord.shift(1, "day");
-          },
+  filterFeature: true,
+  taskMenuFeature: {
+    items: {
+      moveForward: {
+        text: "Move 1 day ahead",
+        weight: 80,
+        onItem: ({ taskRecord }) => {
+          taskRecord.shift(1, "day");
         },
-        moveBackward: {
-          text: "Move 1 day before",
-          weight: 90,
-          onItem: ({ taskRecord }) => {
-            taskRecord.shift(-1, "day");
-          },
+      },
+      moveBackward: {
+        text: "Move 1 day before",
+        weight: 90,
+        onItem: ({ taskRecord }) => {
+          taskRecord.shift(-1, "day");
         },
-        // Rename "Delete task" item
-        deleteTask: {
-          text: "Delete this guy",
-        },
-        // Rename "Edit task" item
-        editTask: {
-          text: "Update this guy",
-        },
-        add: {
-          menu: {
-            // Only added to the left grid as it's a filter
-            filterDateEquales: true,
-          },
+      },
+      // Rename "Delete task" item
+      deleteTask: {
+        text: "Delete this task",
+      },
+      // Rename "Edit task" item
+      editTask: {
+        text: "Update this task",
+      },
+      add: {
+        menu: {
+          // Only added to the left grid as it's a filter
+          filterDateEquales: true,
         },
       },
     },
-    taskEdit: {
-      items: {
-        dangerZone: {
-          title: "Danger Zone",
-          weight: 90,
-          items: {
-            dangerName: {
-              type: "textfield",
-              weight: 100,
-              label: "Danger Name",
-              // could be any task field like name, id, duration, percentDone
-              name: "name",
-            },
-            dangerProbability: {
-              type: "radiogroup",
-              name: "probability",
-              label: "Probability",
-              options: {
-                hight: "High",
-                medium: "Medium",
-                mow: "Low",
-              },
+  },
+  taskEditFeature: {
+    items: {
+      dangerZone: {
+        title: "Danger Zone",
+        weight: 90,
+        items: {
+          dangerName: {
+            type: "textfield",
+            weight: 100,
+            label: "Danger Name",
+            // could be any task field like name, id, duration, percentDone
+            name: "name",
+          },
+          dangerProbability: {
+            type: "radiogroup",
+            name: "probability",
+            label: "Probability",
+            options: {
+              hight: "High",
+              medium: "Medium",
+              mow: "Low",
             },
           },
         },
       },
     },
   },
+
   taskRenderer({ taskRecord, renderData }) {
-    console.log("taskRenderer", { taskRecord, renderData });
-    console.log("taskRecord.name", taskRecord.name);
-    if (taskRecord.name.toLocaleLowerCase().startsWith("important")) {
+    // console.log("taskRenderer", { taskRecord, renderData });
+    // console.log("taskRecord.name", taskRecord.name);
+    if (taskRecord.name.toLocaleLowerCase().startsWith("important ")) {
       // make important task red
       renderData.style = "background-color: red; color: pink";
       // display the name in the task only if the task important

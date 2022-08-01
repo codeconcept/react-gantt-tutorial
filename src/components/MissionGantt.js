@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { BryntumGantt, BryntumProjectModel } from "@bryntum/gantt-react";
-import '../App.scss';
+import "../App.scss";
 
 import missionTasks from "./gantt-mars-data.js";
 

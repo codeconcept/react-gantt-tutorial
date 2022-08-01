@@ -74,15 +74,12 @@ export default class GanttToolbar extends Toolbar {
             },
           ],
           onAction(action) {
-            const language =
-              action.source.currentElement.attributes["data-ref"].value;
+            const language = action.source.initialConfig.ref;
             console.log(`language ${language}`);
             if (language === "english") {
-              console.log('anguage === "english"');
               LocaleManager.locale = En;
             }
             if (language === "swedish") {
-              console.log('anguage === "swedish"');
               LocaleManager.locale = SvSE;
             }
           },

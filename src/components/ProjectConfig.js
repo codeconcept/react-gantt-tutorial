@@ -1,10 +1,11 @@
 export const projectConfig = {
+  autoSync: true,
   transport: {
     load: {
-      url: "http://localhost:3001/data",
+      url: "http://localhost:3002/data",
     },
     sync: {
-      url: "http://localhost:3001/data",
+      url: "http://localhost:3002/data",
     },
   },
   autoLoad: true,
